@@ -1,5 +1,5 @@
-import util from 'util'
-import assert from 'assert'
+import * as util from 'util'
+import * as assert from 'assert'
 import idx from 'idx'
 import { nest } from '@stem/nesthydrationjs'
 import stringifySQL from './stringifiers/dispatcher'
@@ -18,12 +18,12 @@ export function inspect(obj, options = {}) {
 }
 
 // really? yes, really
-export function last(arr) {
-  return arr[arr.length - 1]
+export function last<T>(arr: T[]): T | null {
+  return arr[arr.length - 1] ?? null
 }
 
-export function wrap(maybeArr) {
-  if (maybeArr.constructor === Array) {
+export function wrap<T>(maybeArr: T | T[]) {
+  if (Array.isArray(maybeArr)) {
     return maybeArr
   }
   return [maybeArr]
@@ -67,7 +67,7 @@ export function cursorToObj(cursor) {
 }
 
 // wrap in a pair of single quotes for the SQL if needed
-export function maybeQuote(value, dialectName) {
+export function maybeQuote(value, dialectName?) {
   if (value == null) {
     return 'NULL'
   }
@@ -176,7 +176,7 @@ export function handleUserDbCall(dbCall, sql, sqlAST, shapeDefinition) {
           const data = nest(rows, shapeDefinition)
           resolveUnions(data, sqlAST)
           if (debug.enabled) {
-            debug(emphasize('SHAPED_DATA', inspect(data)))
+            debug(emphasize(`SHAPED_DATA ${inspect(data)}`))
           }
           resolve(data)
         }

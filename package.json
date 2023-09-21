@@ -87,6 +87,8 @@
     "@babel/plugin-proposal-do-expressions": "^7.8.3",
     "@babel/preset-env": "^7.9.6",
     "@babel/register": "^7.9.0",
+    "@types/graphql": "14.5.0",
+    "@types/node": "20.6.3",
     "ava": "^5.3.1",
     "babel-plugin-idx": "^2.4.0",
     "babel-watch": "^7.0.0",
@@ -96,7 +98,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
     "faker": "^4.1.0",
-    "graphql": "^16.6.0",
+    "graphql": "16.8.1",
     "graphsiql": "0.2.0",
     "idx": "^2.5.6",
     "jsdoc-to-markdown": "^8.0.0",
@@ -108,7 +110,8 @@
     "pg": "^8.2.1",
     "sinon": "^9.0.2",
     "sqlite3": "^5.1.0",
-    "tsd": "^0.28.1"
+    "tsd": "^0.28.1",
+    "typescript": "5.2.2"
   },
   "dependencies": {
     "@stem/nesthydrationjs": "0.4.0",
